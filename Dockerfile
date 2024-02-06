@@ -15,6 +15,8 @@ RUN apt-get update && \
 	apt-get install -y --no-install-recommends --no-install-suggests \
 		procps\
 		locales \
+		libicu67 \
+		libgdiplus && \
 	sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && locale-gen
 
 CMD ${STEAMSCRIPTDIR}/steam_update.sh && \
