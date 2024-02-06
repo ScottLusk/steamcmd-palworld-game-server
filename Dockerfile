@@ -17,7 +17,10 @@ RUN apt-get update && \
 		locales \
 		libicu67 \
 		libgdiplus && \
-	sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && locale-gen
+	sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && locale-gen && \
+	mkdir -p ~/.steam/sdk64/ && \
+	${STEAMCMDDIR}/steamcmd.sh +login anonymous +app_update 1007 +quit && \
+	cp ~/Steam/steamapps/common/Steamworks\ SDK\ Redist/linux64/steamclient.so ~/.steam/sdk64/
 
 CMD ${STEAMSCRIPTDIR}/steam_update.sh && \
 	${STEAMSCRIPTDIR}/configure_server.sh && \
