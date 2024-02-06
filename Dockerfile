@@ -25,5 +25,5 @@ CMD ${STEAMSCRIPTDIR}/steam_update.sh && \
 	./PalServer.sh -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS
 
 ADD src ${STEAMSCRIPTDIR}
-RUN ls src -l
+RUN ls ${STEAMSCRIPTDIR} -l
 RUN ${STEAMSCRIPTDIR}/steam_update.sh
