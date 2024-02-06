@@ -8,7 +8,7 @@ ENV STEAMAPPID 2394010
 ENV STEAMAPPDIR /home/steam/PalServer
 ENV STEAMSCRIPTDIR /home/steam/scripts
 
-VOLUME [${STEAMAPPDIR}/Pal]
+VOLUME [${STEAMAPPDIR}/Pal/Saved]
 EXPOSE 8211
 
 RUN apt-get update && \
