@@ -7,4 +7,4 @@ echo REMOTE_ADDRESS $REMOTE_ADDRESS
 echo MAX_PLAYERS $MAX_PLAYERS
 echo DEATH_PENALTY $DEATH_PENALTY
 
-cp ${STEAMAPPDIR}/DefaultPalWorldSettings.ini ${STEAMAPPDIR}/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
+mkdir -p ${STEAMAPPDIR}/Pal/Saved/Config/LinuxServer/ && cp ${STEAMAPPDIR}/DefaultPalWorldSettings.ini ${STEAMAPPDIR}/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
