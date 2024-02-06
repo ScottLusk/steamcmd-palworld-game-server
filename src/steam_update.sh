@@ -5,3 +5,4 @@ ${STEAMCMDDIR}/steamcmd.sh \
 		+force_install_dir ${STEAMAPPDIR} \
 		+app_update ${STEAMAPPID} validate \
 		+quit
+
