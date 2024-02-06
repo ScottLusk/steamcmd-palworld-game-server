@@ -8,4 +8,3 @@ echo MAX_PLAYERS $MAX_PLAYERS
 echo DEATH_PENALTY $DEATH_PENALTY
 
 cp ${STEAMAPPDIR}/DefaultPalWorldSettings.ini ${STEAMAPPDIR}/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
-
