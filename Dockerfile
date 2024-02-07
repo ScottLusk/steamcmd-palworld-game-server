@@ -13,17 +13,15 @@ EXPOSE 8211
 
 RUN apt-get update && \
 	apt-get install -y --no-install-recommends --no-install-suggests \
-		procps\
-		locales \
-		libicu67 \
-		libgdiplus && \
+		lib32gcc-s1 \
+		lib32stdc++6 \
+		lib32z1 \
+		cron && \
 	sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && locale-gen
 
 CMD ${STEAMSCRIPTDIR}/steam_update.sh && \
 	${STEAMSCRIPTDIR}/configure_server.sh && \
 	su steam -c "${STEAMAPPDIR}/PalServer.sh -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS"
 
-ADD --chmod=777 src ${STEAMSCRIPTDIR}
-RUN ${STEAMSCRIPTDIR}/steam_update.sh && \
-	mkdir -p /home/steam/.steam && \
-	ln -s ${STEAMAPPDIR}/linux64 /home/steam/.steam/sdk64
+ADD --chown=steam:steam --chmod=777 src ${STEAMSCRIPTDIR}
+RUN ${STEAMSCRIPTDIR}/steam_update.sh
