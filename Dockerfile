@@ -21,7 +21,9 @@ RUN apt-get update && \
 
 CMD ${STEAMSCRIPTDIR}/steam_update.sh && \
 	${STEAMSCRIPTDIR}/configure_server.sh && \
-	su -c "${STEAMAPPDIR}/PalServer.sh -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS" steam
+	su steam -c "${STEAMAPPDIR}/PalServer.sh -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS"
 
 ADD --chmod=777 src ${STEAMSCRIPTDIR}
-RUN ${STEAMSCRIPTDIR}/steam_update.sh
+RUN ${STEAMSCRIPTDIR}/steam_update.sh && \
+	mkdir -p /home/steam/.steam && \
+	ln -s ${STEAMAPPDIR}/linux64 /home/steam/.steam/sdk64
